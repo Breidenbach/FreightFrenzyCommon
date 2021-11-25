@@ -15,6 +15,31 @@ import java.util.Enumeration;
 import java.util.Map;
 import java.util.ArrayList;
 
+
+/**
+  *   Desired changes:
+  *
+  *		It is expected that some slip will occur when starting at full power on a
+  *		well used playing field.  Therefore, it would be advantageous to ramp speed
+  * 	up and down to reduce slip.
+  *			-  Specify the amount of ramp as a fraction of wheel circumference.
+  *			-  It will be necessary to check if the distance to go is less than 
+  *				than twice the ramp request so that the ramp request value can be
+  *				recalculated to 1/2 of the distance.
+  *			-  Use a sin function to adjust the power for a smoother ramp.
+  *
+  *		In testing, the PID function caused the robot to severely swerve off course.
+  *		This should be corrected.
+  *
+  *		Distance sensors could be integrated into the calculations.
+  *
+  *		The code below includes some methods that have integrated other operations
+  *		besides moving the robot into the method.  These were for using the arm that 
+  *     placed blocks in SkyStone.  The routines should be replace by or modified to use
+  *     the newer accessory hardware.
+  *
+  **/
+  
 /**
  * The code REQUIRES that you DO have encoders on the wheels,
  *  This code ALSO requires that the drive Motors have been configured such that a positive
